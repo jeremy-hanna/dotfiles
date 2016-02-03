@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/jhanna/dev/depth_first_search/tests'
+let g:netrw_dirhist_2='/Users/jhanna/dev/shortest_path'
+let g:netrw_dirhist_3='/Volumes/EFI/EFI/CLOVER/kexts/10.10/FakeSMC.kext'
+let g:netrw_dirhist_4='/Volumes/EFI/EFI/CLOVER/kexts/10.10/FakeSMC.kext/Contents'
+let g:netrw_dirhist_5='/Volumes/EFI/EFI/CLOVER/kexts/10.10/FakeSMC_GPUSensors.kext/Contents'
+let g:netrw_dirhist_6='/Volumes/EFI/EFI/CLOVER/kexts/10.10/FakeSMC_GPUSensors.kext/Contents/MacOS'
+let g:netrw_dirhist_7='/Users/jhanna/my-coursera_classes/00_Stanford-Algorithms_Design_and_Analysis_I/depth_first_search'
+let g:netrw_dirhist_8='/Users/jhanna/Development'
