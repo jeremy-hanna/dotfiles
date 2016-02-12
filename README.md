@@ -3,8 +3,14 @@ So this repo was created to specifically set up a clean way to tear down and sta
 
 ##TODO:
 * vim plug-ins
+  * Ctrl-P
+  * Rails.vim
+  * syntax highlighting
+  * whitespace highlighting
   * NodeTree
+  * Airline
   * some tab complete
 * default tmux split view for laptop + monitor view
 * tmux split rspec runner command
 * tmux split colors
+* git configuration
