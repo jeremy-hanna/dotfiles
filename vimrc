@@ -11,3 +11,6 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 colorscheme apprentice
+
+set rnu
+set nu
