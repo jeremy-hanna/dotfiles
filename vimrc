@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/bundle')
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 let g:tmux_navigator_no_mappings = 1
@@ -14,3 +15,6 @@ colorscheme apprentice
 
 set rnu
 set nu
+
+highlight ColorColumn ctermbg=235
+set colorcolumn=80
