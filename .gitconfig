@@ -1,0 +1,6 @@
+[user]
+  name = Jeremy Hanna
+  email = jeremy-hanna@github.com
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore
