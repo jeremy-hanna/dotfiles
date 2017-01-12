@@ -98,6 +98,15 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+# Make capslock ctrl
+# TODO
+
+# Enable trackpad drag
+# TODO
+
+# Enable trackpad tap
+# TODO
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
@@ -254,6 +263,16 @@ fi
 # Top right screen corner → Put display to sleep
 defaults write com.apple.dock wvous-tr-corner -int 10
 defaults write com.apple.dock wvous-tr-modifier -int 0
+
+###############################################################################
+# Spaces                                                                      #
+###############################################################################
+
+# enable spaces
+# TODO
+
+# use alt+arrows to move spaces
+# TODO
 
 ###############################################################################
 # Mail                                                                        #
