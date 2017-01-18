@@ -7,7 +7,8 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug 'robbyrussell/oh-my-zsh', use:'lib/*'
-zplug 'themes/blinks'
+zplug "lib/theme-and-appearance", from:oh-my-zsh
+zplug 'themes/blinks', from:oh-my-zsh
 
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
