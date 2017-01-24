@@ -20,5 +20,4 @@ export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 #alias tmux to use vim colorscheme instead of iTerm2
 alias tmux="TERM=screen-256color-bce tmux"
 
-# extend with direnv profiles
-eval "$(direnv hook zsh)"
+alias ts="ssh -A dev-jhanna'
