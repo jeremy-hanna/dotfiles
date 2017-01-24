@@ -6,36 +6,5 @@ OS X dependencies:
 * Homebrew
 * vim 7.4+
 * tmux
-
-copy files to home folder:
- * cp zshrc ~/.zshrc
- * cp vimrc ~/.vimrc
- * cp tmux.conf ~/.tmux.conf
- * cp -r vim ~/.vim
-
-install vim plugins
-* :PlugInstall
-
-## TODO:
-### Function
-User config
-* git configuration
-* oh-my-zsh
-
-Vim config
-* File search - Ctrl-P / NodeTree
-* Syntax indicators
-  * syntax highlighting
-  * whitespace highlighting
-  * git blame
-* Text navigation
-  * Airline
-  * some tab complete
-* Rails specific
-  * Rails.vim
-  * run ajoining spec cmd / vim-fireplace
-
-### Style
-* tmux split colors
-* fonts
-* default tmux split view for laptop + monitor view
+* zplug
+* vim-plug (:PlugInstall)
