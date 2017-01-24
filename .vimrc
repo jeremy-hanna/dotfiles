@@ -3,7 +3,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
-" colorscheme apprentice
+colorscheme apprentice
 
 " Don't use .swp files
 set noswapfile
@@ -17,5 +17,7 @@ highlight ColorColumn ctermbg=235
 set colorcolumn=80
 
 " TODO:
+" Plug 'thoughtbot/vim-rspec'
+" Plug 'tComment'
 " - remap a different key for <Esc>
 " - ctags ?
