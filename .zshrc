@@ -20,4 +20,4 @@ export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 #alias tmux to use vim colorscheme instead of iTerm2
 alias tmux="TERM=screen-256color-bce tmux"
 
-alias ts="ssh -A dev-jhanna'
+alias ts="ssh -A dev-jhanna"
