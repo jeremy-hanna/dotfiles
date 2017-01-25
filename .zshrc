@@ -17,6 +17,10 @@ zplug load
 # homebrew : brew installed python
 export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 
+# enable chruby and auto switching to .ruby-version
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
 #alias tmux to use vim colorscheme instead of iTerm2
 alias tmux="TERM=screen-256color-bce tmux"
 
