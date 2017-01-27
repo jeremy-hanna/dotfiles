@@ -8,6 +8,11 @@ colorscheme apprentice
 " Don't use .swp files
 set noswapfile
 
+" Expand tabs, use 2 spaces to tab
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
 " Use relative line numbers with actual line number on active line
 set rnu
 set nu
