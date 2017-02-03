@@ -25,7 +25,15 @@ source /usr/local/share/chruby/auto.sh
 alias tmux="TERM=screen-256color-bce tmux"
 
 alias ts="ssh -A dev-jhanna"
+alias ll="ls -Gal"
 
 # GoPath to source go libs in src
 export GOPATH=$HOME/src/go
 export PATH=$PATH:$GOPATH/bin
+alias gomake='make_new_go_program'
+
+make_new_go_program () {
+  new_project="$1"
+  new_val="$GOPATH/src/github.com/jeremy-hanna/$1"
+  mkdir $new_val && ln -s $new_val $new_project
+}
