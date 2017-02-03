@@ -31,9 +31,19 @@ alias ll="ls -Gal"
 export GOPATH=$HOME/src/go
 export PATH=$PATH:$GOPATH/bin
 alias gomake='make_new_go_program'
+alias goinstall='install_go_program'
+alias gorun='run_go_program'
 
 make_new_go_program () {
   new_project="$1"
   new_val="$GOPATH/src/github.com/jeremy-hanna/$1"
-  mkdir $new_val && ln -s $new_val $new_project
+  mkdir $new_project && ln -s $PWD/$new_project $new_val
+}
+
+install_go_program () {
+  go install github.com/jeremy-hanna/$1
+}
+
+run_go_program () {
+  eval "$GOPATH/bin/$1"
 }
