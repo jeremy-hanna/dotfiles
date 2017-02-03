@@ -1,18 +1,18 @@
 " Vim plugins
 call plug#begin('~/.vim/bundle')
-" --- Text utility ---
-"  tabular
-"  vim-surround
-" --- Dir and git utility ---
-"  ctrlp
-"  vim-fugitive
-"  git-gutter
-" --- Appearance ---
+" --- Editing utility ---
+" Plug 'tpope/vim-surround'
+" Plug 'godlygeek/tabular'
+" --- Git and File utility ---
+" Plug 'ctrlp.vim'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'tpope/vim-fugitive'
+" --- Visuals and syntax ---
 Plug 'ntpeters/vim-better-whitespace'
-" airline
-" Plug ''
+" Plug 'vim-airline/vim-airline'
+" --- Ruby ---
 " --- Clojure ---
-"  vim-fireplace
+" Plug 'tpope/vim-fireplace'
 call plug#end()
 
 colorscheme apprentice
@@ -33,14 +33,16 @@ set nu
 highlight ColorColumn ctermbg=235
 set colorcolumn=80
 
-" load specific settings depending on file
+" load specific configurations based on filetype
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
-  autocmd FileType ruby        source ~/.vim/scripts/ruby.vim
-  autocmd FileType javascript  let b:comment_leader = '// '
-  autocmd FileType vim         let b:comment_leader = '" '
+  au Filetype ruby             source ~/.vim/scripts/ruby.vim
+  au FileType sh,python        let b:comment_leader = '# '
+  au FileType javascript       let b:comment_leader = '// '
+  au FileType vim              let b:comment_leader = '" '
 endif
 
+" Add visual comments based on the $comment_leader
 " Comment out selected lines + format them
 vnoremap <Leader>fa :s/^/\=b:comment_leader/g<CR>gv=
 " Uncomment selected lines (copied from StackOverflow = black magic)  + format     them
@@ -49,5 +51,7 @@ vnoremap <Leader>fr :s@\V<c-r>=escape(b:comment_leader,'\@')<cr>@@<cr>gv=
 " Edit a file in the directory of the file currently being edited
 nmap ,e :e <C-R>=expand("%:p:h") . "/"<CR>
 
+" remap a different key for <Esc> since new MBP doesn't have a key :(
+
 " TODO:
-" remap a different key for <Esc>
+" - ctags ?
