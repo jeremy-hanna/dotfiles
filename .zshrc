@@ -25,3 +25,7 @@ source /usr/local/share/chruby/auto.sh
 alias tmux="TERM=screen-256color-bce tmux"
 
 alias ts="ssh -A dev-jhanna"
+
+# GoPath to source go libs in src
+export GOPATH=$HOME/src/go
+export PATH=$PATH:$GOPATH/bin
