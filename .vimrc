@@ -37,6 +37,7 @@ set colorcolumn=80
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
   au Filetype ruby             source ~/.vim/scripts/ruby.vim
+  au Filetype go               source ~/.vim/scripts/go.vim
   au FileType sh,python        let b:comment_leader = '# '
   au FileType javascript       let b:comment_leader = '// '
   au FileType vim              let b:comment_leader = '" '
