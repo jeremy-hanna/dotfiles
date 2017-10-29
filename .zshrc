@@ -24,7 +24,6 @@ source /usr/local/share/chruby/auto.sh
 #alias tmux to use vim colorscheme instead of iTerm2
 alias tmux="TERM=screen-256color-bce tmux"
 
-alias ts="ssh -A dev-jhanna"
 alias ll="ls -Gal"
 
 # GoPath to source go libs in src
