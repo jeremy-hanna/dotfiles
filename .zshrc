@@ -21,10 +21,22 @@ export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
-#alias tmux to use vim colorscheme instead of iTerm2
+# alias tmux to use vim colorscheme instead of iTerm2
 alias tmux="TERM=screen-256color-bce tmux"
 
 alias ll="ls -Gal"
+
+# cli-improved suggested tools see: https://remysharp.com/2018/08/23/cli-improved
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias top="sudo htop" # alias top and fix high sierra bug
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias help='tldr'
+# file directory list with display
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+
+# import .fzf key bindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # GoPath to source go libs in src
 export GOPATH=$HOME/src/go
