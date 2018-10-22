@@ -1,12 +1,13 @@
 " Vim plugins
 call plug#begin('~/.vim/bundle')
 " --- Editing utility ---
-" Plug 'tpope/vim-surround'
-" Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular' " align tables
+Plug 'reedes/vim-pencil' " text wrapping navigation
+Plug 'majutsushi/tagbar' " ctag navigation split
 " --- Git and File utility ---
-" Plug 'ctrlp.vim'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'tpope/vim-fugitive'
+Plug '/usr/local/opt/fzf'
+" Plug 'airblade/vim-gitgutter' " gutter for git diff changes
+Plug 'tpope/vim-fugitive' " git wrapper gblame
 " --- Visuals and syntax ---
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'vim-airline/vim-airline'
