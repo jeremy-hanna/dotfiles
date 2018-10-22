@@ -5,7 +5,8 @@ Plug 'godlygeek/tabular' " align tables
 Plug 'reedes/vim-pencil' " text wrapping navigation
 Plug 'majutsushi/tagbar' " ctag navigation split
 " --- Git and File utility ---
-Plug '/usr/local/opt/fzf'
+Plug '/usr/local/opt/fzf' " import Homebrew fzf installation
+Plug 'junegunn/fzf.vim' " fzf function wrapper
 " Plug 'airblade/vim-gitgutter' " gutter for git diff changes
 Plug 'tpope/vim-fugitive' " git wrapper gblame
 " --- Visuals and syntax ---
