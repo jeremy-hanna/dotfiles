@@ -35,6 +35,14 @@ set nu
 highlight ColorColumn ctermbg=235
 set colorcolumn=80
 
+" commandline completion
+set wildmode=longest,list,full
+set wildmenu
+" wildignore=
+
+" set vim leader to space
+nmap <space> <leader>
+
 " load specific configurations based on filetype
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
