@@ -1,9 +1,11 @@
 " Vim plugins
 call plug#begin('~/.vim/bundle')
 " --- Editing utility ---
-Plug 'godlygeek/tabular' " align tables
-Plug 'reedes/vim-pencil' " text wrapping navigation
-Plug 'majutsushi/tagbar' " ctag navigation split
+Plug 'godlygeek/tabular'    " align tables
+Plug 'reedes/vim-pencil'    " text wrapping navigation
+Plug 'majutsushi/tagbar'    " ctag navigation split
+Plug 'lvht/tagbar-markdown' " tagbar markdown support
+" Plug 'jpalardy/vim-slime' " send line text to a REPL
 " --- Git and File utility ---
 Plug '/usr/local/opt/fzf' " import Homebrew fzf installation
 Plug 'junegunn/fzf.vim' " fzf function wrapper
@@ -60,9 +62,72 @@ vnoremap <Leader>fa :s/^/\=b:comment_leader/g<CR>gv=
 vnoremap <Leader>fr :s@\V<c-r>=escape(b:comment_leader,'\@')<cr>@@<cr>gv=
 
 " Edit a file in the directory of the file currently being edited
-nmap ,e :e <C-R>=expand("%:p:h") . "/"<CR>
+nmap <leader>e :e <C-R>=expand("%:p:h") . "/"<CR>
 
-" remap a different key for <Esc> since new MBP doesn't have a key :(
+" leave insert mode quickly
+" https://stackoverflow.com/questions/13404602/how-to-prevent-esc-from-waiting-for-more-input-in-insert-mode/13485315#13485315
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscapeInsert
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
 
-" TODO:
-" - ctags ?
+" vim-pencil, tagbar and markdown ctags for editing markdown
+" make sure exuberant ctags are installed
+" http://scholarslab.org/research-and-development/code-spelunking-with-ctags-and-vim#mac
+let g:pencil#conceallevel = 0 " hide markdown syntax off
+let g:pencil#wrapModeDefault = "soft"
+let g:tagbar_width = 50
+let g:tagbar_sort = 0      " sort tagbar by name off
+let g:tagbar_left = 1      " open tagbar on the left
+let g:tagbar_silent = 1    " disable echoing tag
+let g:tagbar_foldlevel = 1 " higher order tags will be folded on open
+
+" Add prose function for editing longform
+" TODO: figure out what this is actually doing
+"      - need tag generation on open?
+function! ProseMode(...)
+  if !exists("b:proseon")
+    let b:proseon = 0 " this is the buffer local variable proseon
+  endif
+
+  let a:prose = get(a:, 1, 2) " a: is the argument variable prefix
+
+  if a:prose == 1 || (b:proseon == 0 && a:prose == 2)
+    call pencil#init({"wrap": "soft"})
+    execute "TagbarOpen"
+    setlocal spell
+    let b:proseon = 1
+  else
+    call pencil#init({"wrap": "off"})
+    execute "TagbarClose"
+    setlocal nospell
+    let b:proseon = 0
+    execute "e"
+  endif
+endfunction
+
+" --- Note Commands ---
+" add simple toggle for ProseMode
+command! ProseMode call ProseMode()
+nmap <leader>p :ProseMode<CR>
+
+" call note, leave cmd open to add directory / file
+" command! -nargs=1 Note call OpenNote(<f-args>)
+
+" nmap <silent> <leader>n :Note 
+
+" TODO
+" change instances of ,<...> to <leader><...>
+" standardize the tab opening for specific flows:
+" - open a file + open the spec
+" - discovery
+" - text editing
+" - creating a note
+" FZF searches over too many things, need to global config it
+" timestamp as a function
+" quick way of citing sources (notes / cites / books / pubs)
+" 
