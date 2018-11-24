@@ -86,8 +86,7 @@ let g:tagbar_left = 1      " open tagbar on the left
 let g:tagbar_silent = 1    " disable echoing tag
 let g:tagbar_foldlevel = 1 " higher order tags will be folded on open
 
-" Add prose function for editing longform
-" TODO: figure out what this is actually doing
+" Add prose function toggle for editing longform
 "      - need tag generation on open?
 function! ProseMode(...)
   if !exists("b:proseon")
@@ -96,10 +95,10 @@ function! ProseMode(...)
 
   let a:prose = get(a:, 1, 2) " a: is the argument variable prefix
 
-  if a:prose == 1 || (b:proseon == 0 && a:prose == 2)
+  if a:prose == 1 || (b:proseon == 0 && a:prose == 2) " check if it's already on
     call pencil#init({"wrap": "soft"})
     execute "TagbarOpen"
-    setlocal spell
+    setlocal spell " turn spell checking on buffer locally
     let b:proseon = 1
   else
     call pencil#init({"wrap": "off"})
@@ -130,4 +129,3 @@ nmap <leader>p :ProseMode<CR>
 " FZF searches over too many things, need to global config it
 " timestamp as a function
 " quick way of citing sources (notes / cites / books / pubs)
-" 
