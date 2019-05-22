@@ -2,4 +2,4 @@
 let b:comment_leader = '// '
 
 " execute rspec on current file
-nmap ,r :!time go test<CR>
+nmap <leader>r :!time go test<CR>
