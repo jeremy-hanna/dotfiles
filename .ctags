@@ -1,0 +1,2 @@
+# global ctag options
+--exclude=.git

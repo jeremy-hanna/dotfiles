@@ -38,21 +38,25 @@ highlight ColorColumn ctermbg=235
 set colorcolumn=80
 
 " commandline completion
-set wildmode=longest,list,full
-set wildmenu
+" set wildmode=longest,list,full
+" set wildmenu
 " wildignore=
 
 " set vim leader to space
 nmap <space> <leader>
 
 " load specific configurations based on filetype
+" - <r> running spec(s)
+" - comment leader
+" - <v> open rel spec file
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
   au Filetype ruby             source ~/.vim/scripts/ruby.vim
   au Filetype go               source ~/.vim/scripts/go.vim
   au FileType sh,python        let b:comment_leader = '# '
-  au FileType javascript       let b:comment_leader = '// '
+  au FileType javascript       source ~/.vim/scripts/js.vim
   au FileType vim              let b:comment_leader = '" '
+  au BufNewFile,BufRead *.bib  set filetype=markdown " this sets syntax and ctag checking to markdown
 endif
 
 " Add visual comments based on the $comment_leader
@@ -109,18 +113,23 @@ function! ProseMode(...)
   endif
 endfunction
 
-" --- Note Commands ---
 " add simple toggle for ProseMode
 command! ProseMode call ProseMode()
 nmap <leader>p :ProseMode<CR>
 
-" call note, leave cmd open to add directory / file
-" command! -nargs=1 Note call OpenNote(<f-args>)
+" --- Note Commands ---
+" Add prose function to open a filepath as a note, creates the file before
+" opening it or returns the file path from what is passed io the function
+function! OpenNote(arg)
+  let notefile=system("note -p " . a:arg) " create the file and directory to it
+  execute "edit" notefile
+endfunction
 
-" nmap <silent> <leader>n :Note 
+" call note, leave cmd open to add directory / file
+command! -nargs=1 Note call OpenNote(<f-args>) " most of this is to tab complete input
+nmap <silent> <leader>n :Note 
 
 " TODO
-" change instances of ,<...> to <leader><...>
 " standardize the tab opening for specific flows:
 " - open a file + open the spec
 " - discovery

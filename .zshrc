@@ -38,6 +38,9 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 # import .fzf key bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Add $HOME/bin to path for custom bash scripts
+export PATH=$PATH:$HOME/bin
+
 # GoPath to source go libs in src
 export GOPATH=$HOME/src/go
 export PATH=$PATH:$GOPATH/bin

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+# incase getopts already set this, reset it
+OPTIND=1
+
+# check for -p flag with getopts
+p_option=false
+
+while getopts :p opt; do
+  case $opt in
+    p) p_option=true ;;
+    :) echo "Missing argument for option -$OPTARG"; exit 1;;
+    \?) echo "Unknown option -$OPTARG"; exit 1;;
+  esac
+done
+
+# shift arg list past option flags
+shift $(( OPTIND - 1 ))
+
+ARG=$@
+NOTENAME=${ARG##*/}
+NOTEPATH=${ARG%/$NOTENAME}
+NOTEDIR="$HOME/Dropbox/note_root/$NOTEPATH"
+FULLPATH="$NOTEDIR/$NOTENAME"
+# Check if file exists in shared note dir,
+#   if not it needs to be created with a path
+if [ ! -e $FULLPATH ]; then
+  mkdir -p "$NOTEDIR"
+  touch -a "$FULLPATH"
+fi
+
+# if -p flag return the path
+if $p_option; then
+  echo "$FULLPATH"
+# else open with vim
+else
+  vim "$FULLPATH"
+fi
