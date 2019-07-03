@@ -15,8 +15,10 @@ Plug 'tpope/vim-fugitive' " git wrapper gblame
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'vim-airline/vim-airline'
 " --- Ruby ---
-" --- Clojure ---
-" Plug 'tpope/vim-fireplace'
+" --- GoLang ---
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
+" --- React ---
+Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
 call plug#end()
 
 colorscheme apprentice
