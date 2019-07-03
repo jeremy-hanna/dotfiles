@@ -19,6 +19,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
 " --- React ---
 Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 colorscheme apprentice
