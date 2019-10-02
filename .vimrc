@@ -21,6 +21,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
 " --- React ---
 Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" --- Misc Formatting ---
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 colorscheme apprentice
@@ -60,6 +62,7 @@ if !exists("autocommands_loaded")
   au FileType sh,python        let b:comment_leader = '# '
   au FileType javascript       source ~/.vim/scripts/js.vim
   au FileType vim              let b:comment_leader = '" '
+  au BufRead,BufNewFile *.tf*	 source ~/.vim/scripts/terraform.vim
   au BufNewFile,BufRead *.bib  set filetype=markdown " this sets syntax and ctag checking to markdown
 endif
 
