@@ -8,8 +8,8 @@ Plug 'lvht/tagbar-markdown' " tagbar markdown support
 Plug 'tpope/vim-surround'   " git wrapper gblame
 " Plug 'jpalardy/vim-slime' " send line text to a REPL
 " --- Git and File utility ---
-Plug '/usr/local/opt/fzf' " import Homebrew fzf installation
-Plug 'junegunn/fzf.vim'   " fzf function wrapper
+" Plug '/usr/local/opt/fzf' " import Homebrew fzf installation
+" Plug 'junegunn/fzf.vim'   " fzf function wrapper
 " Plug 'airblade/vim-gitgutter' " gutter for git diff changes
 Plug 'tpope/vim-fugitive' " git wrapper gblame
 " --- Visuals and syntax ---
@@ -17,10 +17,10 @@ Plug 'ntpeters/vim-better-whitespace'
 " Plug 'vim-airline/vim-airline'
 " --- Ruby ---
 " --- GoLang ---
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
 " --- React ---
-Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 colorscheme apprentice

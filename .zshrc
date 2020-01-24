@@ -15,38 +15,38 @@ zplug check --verbose || zplug install
 zplug load
 
 # homebrew : brew installed python
-export PATH=/usr/local/bin:/usr/local/share/python:$PATH
+# export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 
 # enable chruby and auto switching to .ruby-version
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+# source /usr/local/share/chruby/chruby.sh
+# source /usr/local/share/chruby/auto.sh
 
 # alias tmux to use vim colorscheme instead of iTerm2
-alias tmux="TERM=screen-256color-bce tmux"
+# alias tmux="TERM=screen-256color-bce tmux"
 
 alias ll="ls -Gal"
 
 # cli-improved suggested tools see: https://remysharp.com/2018/08/23/cli-improved
-alias cat='bat'
-alias ping='prettyping --nolegend'
-alias top="sudo htop" # alias top and fix high sierra bug
-alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-alias help='tldr'
+# alias cat='bat'
+# alias ping='prettyping --nolegend'
+# alias top="sudo htop" # alias top and fix high sierra bug
+# alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+# alias help='tldr'
 # file directory list with display
-alias preview="fzf --preview 'bat --color \"always\" {}'"
+# alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 # import .fzf key bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Add $HOME/bin to path for custom bash scripts
-export PATH=$PATH:$HOME/bin
+# export PATH=$PATH:$HOME/bin
 
 # GoPath to source go libs in src
-export GOPATH=$HOME/src/go
-export PATH=$PATH:$GOPATH/bin
-alias gomake='make_new_go_program'
-alias goinstall='install_go_program'
-alias gorun='run_go_program'
+# export GOPATH=$HOME/src/go
+# export PATH=$PATH:$GOPATH/bin
+# alias gomake='make_new_go_program'
+# alias goinstall='install_go_program'
+# alias gorun='run_go_program'
 
 make_new_go_program () {
   new_project="$1"
