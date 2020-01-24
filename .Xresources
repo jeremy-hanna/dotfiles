@@ -1,0 +1,14 @@
+!! Terminal appearance
+URxvt*.font: xft:Monoid:size=10:antialias=true
+URxvt*.boldFont: xft:Monoid:bold:size=11:antialias=true
+URxvt*.letterSpace: -1
+URxvt*.intensityStyles: false
+
+URxvt*.scrollBar: false
+URxvt*.scrollBar_right: false
+URxvt*.iso14755: false
+
+!! Colors (oh-my-zsh blinks)
+URxvt*.foreground: #bbbbba
+URxvt*.background: #252525
+URxvt*.color0: #303030
