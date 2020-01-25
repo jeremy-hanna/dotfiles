@@ -2,8 +2,9 @@
 source ~/.zplug/init.zsh
 
 # zplug packages
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug 'themes/blinks', from:oh-my-zsh
+zplug zsh-users/zsh-syntax-highlighting, defer:2
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 zplug check --verbose || zplug install
 
