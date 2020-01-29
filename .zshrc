@@ -10,7 +10,6 @@ zplug check --verbose || zplug install
 
 zplug load
 
-
 # homebrew : brew installed python
 # export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 
@@ -34,6 +33,10 @@ alias ll="ls -Gal"
 # Add $HOME/bin to path for custom bash scripts
 export PATH=$PATH:$HOME/bin
 # export PATH=$PATH:$HOME/Library/Python/3.7/bin
+
+# Bind some convience keys for navigating shell commands
+bindkey "^b" backward-word # ctrl + b
+bindkey "^f" forward-word  # ctrl + f
 
 # enable chruby and auto switching to .ruby-version
 # source /usr/local/share/chruby/chruby.sh
