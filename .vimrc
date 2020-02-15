@@ -17,10 +17,10 @@ Plug 'ntpeters/vim-better-whitespace'
 " Plug 'vim-airline/vim-airline'
 " --- Ruby ---
 " --- GoLang ---
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
 " --- React ---
-" Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 " --- Misc Formatting ---
 " Plug 'hashivim/vim-terraform'
 call plug#end()
@@ -60,7 +60,7 @@ if !exists("autocommands_loaded")
   au Filetype ruby             source ~/.vim/scripts/ruby.vim
   au Filetype go               source ~/.vim/scripts/go.vim
   au FileType sh,python        let b:comment_leader = '# '
-  au FileType javascript       source ~/.vim/scripts/js.vim
+  au FileType javascript,javascriptreact source ~/.vim/scripts/js.vim
   au FileType vim              let b:comment_leader = '" '
   au BufRead,BufNewFile *.tf*	 source ~/.vim/scripts/terraform.vim
   au BufNewFile,BufRead *.bib  set filetype=markdown " this sets syntax and ctag checking to markdown
