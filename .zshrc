@@ -18,15 +18,6 @@ zplug load
 
 alias ll="ls -Gal"
 
-# cli-improved suggested tools see: https://remysharp.com/2018/08/23/cli-improved
-# alias cat='bat'
-# alias ping='prettyping --nolegend'
-# alias top="sudo htop" # alias top and fix high sierra bug
-# alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-# alias help='tldr'
-# file directory list with display
-# alias preview="fzf --preview 'bat --color \"always\" {}'"
-
 # import .fzf key bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
