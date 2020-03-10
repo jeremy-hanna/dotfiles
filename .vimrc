@@ -8,8 +8,8 @@ Plug 'lvht/tagbar-markdown' " tagbar markdown support
 Plug 'tpope/vim-surround'   " git wrapper gblame
 " Plug 'jpalardy/vim-slime' " send line text to a REPL
 " --- Git and File utility ---
-Plug '/usr/local/opt/fzf' " import Homebrew fzf installation
-Plug 'junegunn/fzf.vim'   " fzf function wrapper
+" Plug '/usr/local/opt/fzf' " import Homebrew fzf installation
+" Plug 'junegunn/fzf.vim'   " fzf function wrapper
 " Plug 'airblade/vim-gitgutter' " gutter for git diff changes
 Plug 'tpope/vim-fugitive' " git wrapper gblame
 " --- Visuals and syntax ---
@@ -20,9 +20,9 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
 " --- React ---
 Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 " --- Misc Formatting ---
-Plug 'hashivim/vim-terraform'
+" Plug 'hashivim/vim-terraform'
 call plug#end()
 
 colorscheme apprentice
@@ -60,7 +60,7 @@ if !exists("autocommands_loaded")
   au Filetype ruby             source ~/.vim/scripts/ruby.vim
   au Filetype go               source ~/.vim/scripts/go.vim
   au FileType sh,python        let b:comment_leader = '# '
-  au FileType javascript       source ~/.vim/scripts/js.vim
+  au FileType javascript,javascriptreact source ~/.vim/scripts/js.vim
   au FileType vim              let b:comment_leader = '" '
   au BufRead,BufNewFile *.tf*	 source ~/.vim/scripts/terraform.vim
   au BufNewFile,BufRead *.bib  set filetype=markdown " this sets syntax and ctag checking to markdown
