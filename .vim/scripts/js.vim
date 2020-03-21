@@ -2,7 +2,7 @@
 let b:comment_leader = '// '
 
 " execute jest tests or whatever is set in package.json
-nmap <leader>r :!time CI=true yarn test<CR>
+nmap <silent> <leader>r :!time npm test -t %<CR>
 
 " prettier on save
 " autocmd BufWritePre *.js* setlocal formatprg=npm\ --silent\ run\ prettier

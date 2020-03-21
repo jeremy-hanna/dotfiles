@@ -16,11 +16,15 @@ Plug 'tpope/vim-fugitive' " git wrapper gblame
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'vim-airline/vim-airline'
 " --- Ruby ---
+" --- Elixir ---
+Plug 'elixir-editors/vim-elixir'
 " --- GoLang ---
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
 " --- React ---
 Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install' } " auto formatting
+Plug 'rstacruz/vim-closer'  " close '({[' for writing ES6
+Plug 'alvan/vim-closetag'   " close React component and HTML tags
 " --- Misc Formatting ---
 " Plug 'hashivim/vim-terraform'
 call plug#end()
@@ -68,12 +72,16 @@ endif
 
 " Add visual comments based on the $comment_leader
 " Comment out selected lines + format them
-vnoremap <Leader>fa :s/^/\=b:comment_leader/g<CR>gv=
+vnoremap <leader>fa :s/^/\=b:comment_leader/g<CR>gv=
 " Uncomment selected lines (copied from StackOverflow = black magic)  + format     them
-vnoremap <Leader>fr :s@\V<c-r>=escape(b:comment_leader,'\@')<cr>@@<cr>gv=
+vnoremap <leader>fr :s@\V<c-r>=escape(b:comment_leader,'\@')<cr>@@<cr>gv=
 
 " Edit a file in the directory of the file currently being edited
 nmap <leader>e :e <C-R>=expand("%:p:h") . "/"<CR>
+
+" set vim-closetag variables
+let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascriptreact'
+let g:closetag_emptyTags_caseSensitive = 1
 
 " leave insert mode quickly
 " https://stackoverflow.com/questions/13404602/how-to-prevent-esc-from-waiting-for-more-input-in-insert-mode/13485315#13485315
