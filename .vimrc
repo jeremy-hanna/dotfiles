@@ -141,8 +141,8 @@ function! OpenNote(arg)
 endfunction
 
 " call note, leave cmd open to add directory / file
-command! -nargs=1 Note call OpenNote(<f-args>) " most of this is to tab complete input
-nmap <silent> <leader>n :Note 
+" command! -nargs=1 Note call OpenNote(<f-args>) " most of this is to tab complete input
+" nmap <silent> <leader>n :Note
 
 " TODO
 " standardize the tab opening for specific flows:
