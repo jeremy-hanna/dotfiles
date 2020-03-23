@@ -62,6 +62,7 @@ nmap <space> <leader>
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
   au Filetype ruby             source ~/.vim/scripts/ruby.vim
+  au Filetype elixir           source ~/.vim/scripts/elixir.vim
   au Filetype go               source ~/.vim/scripts/go.vim
   au FileType sh,python        let b:comment_leader = '# '
   au FileType javascript,javascriptreact source ~/.vim/scripts/js.vim
@@ -71,6 +72,7 @@ if !exists("autocommands_loaded")
 endif
 
 " Add visual comments based on the $comment_leader
+" - visual leader is mapped to \ by default
 " Comment out selected lines + format them
 vnoremap <leader>fa :s/^/\=b:comment_leader/g<CR>gv=
 " Uncomment selected lines (copied from StackOverflow = black magic)  + format     them
