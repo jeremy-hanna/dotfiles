@@ -1,23 +1,23 @@
 " Vim plugins
 call plug#begin('~/.vim/bundle')
 " --- Editing utility ---
-Plug 'godlygeek/tabular'    " align tables
-Plug 'reedes/vim-pencil'    " text wrapping navigation
-Plug 'majutsushi/tagbar'    " ctag navigation split
-Plug 'lvht/tagbar-markdown' " tagbar markdown support
-Plug 'tpope/vim-surround'   " git wrapper gblame
-" Plug 'jpalardy/vim-slime' " send line text to a REPL
+Plug 'godlygeek/tabular'     " align tables
+Plug 'reedes/vim-pencil'     " text wrapping navigation
+Plug 'majutsushi/tagbar'     " ctag navigation split
+Plug 'lvht/tagbar-markdown'  " tagbar markdown support
+Plug 'tpope/vim-surround'    " git wrapper gblame
+Plug 'kana/vim-textobj-user' " create custom vim text-objects
 " --- Git and File utility ---
-" Plug '/usr/local/opt/fzf' " import Homebrew fzf installation
-" Plug 'junegunn/fzf.vim'   " fzf function wrapper
-" Plug 'airblade/vim-gitgutter' " gutter for git diff changes
-Plug 'tpope/vim-fugitive' " git wrapper gblame
+" Plug '/usr/local/opt/fzf'  " import Homebrew fzf installation
+" Plug 'junegunn/fzf.vim'    " fzf function wrapper
+Plug 'tpope/vim-fugitive'    " git wrapper gblame
 " --- Visuals and syntax ---
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'vim-airline/vim-airline'
 " --- Ruby ---
 " --- Elixir ---
-Plug 'elixir-editors/vim-elixir'
+Plug 'elixir-editors/vim-elixir' " elixir syntax highlight
+Plug 'andyl/vim-textobj-elixir'  " make elixir blocks text-objects
 " --- GoLang ---
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
 " --- React ---
@@ -114,9 +114,9 @@ function! ProseMode(...)
     let b:proseon = 0 " this is the buffer local variable proseon
   endif
 
-  let a:prose = get(a:, 1, 2) " a: is the argument variable prefix
+  let l:prose = get(l:, 1, 2) " l: is the argument variable prefix
 
-  if a:prose == 1 || (b:proseon == 0 && a:prose == 2) " check if it's already on
+  if l:prose == 1 || (b:proseon == 0 && l:prose == 2) " check if it's already on
     call pencil#init({"wrap": "soft"})
     execute "TagbarOpen"
     setlocal spell " turn spell checking on buffer locally
@@ -138,7 +138,7 @@ nmap <leader>p :ProseMode<CR>
 " Add prose function to open a filepath as a note, creates the file before
 " opening it or returns the file path from what is passed io the function
 function! OpenNote(arg)
-  let notefile=system("note -p " . a:arg) " create the file and directory to it
+  let notefile=system("note -p " . l:arg) " create the file and directory to it
   execute "edit" notefile
 endfunction
 

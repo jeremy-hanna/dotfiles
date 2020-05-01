@@ -13,4 +13,4 @@ let g:prettier#config#jsx_bracket_same_line = "false"
 let g:prettier#config#arrow_parens = "avoid"
 let g:prettier#config#trailing_comma = "none"
 let g:prettier#config#parser = "babylon"
-autocmd BufWritePre *.js,*.jsx,*.css,*.less,*.scss,*.json,*.graphql,*.html PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
