@@ -82,7 +82,7 @@ vnoremap <leader>fr :s@\V<c-r>=escape(b:comment_leader,'\@')<cr>@@<cr>gv=
 nmap <leader>e :e <C-R>=expand("%:p:h") . "/"<CR>
 
 " insert a debugger breakpoint
-nnoremap <leader>d O<Esc>:s/^/\=b:debug_cmd/g<CR>
+nnoremap <leader>o O<Esc>:s/^/\=b:debug_cmd/g<CR>
 
 " set vim-closetag variables
 let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascriptreact'
