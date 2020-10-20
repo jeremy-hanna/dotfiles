@@ -63,6 +63,7 @@ let g:ale_lint_on_enter = 0              " don't lint on file open
 let g:ale_linters_explicit = 1           " only lint opt-in extensions
 let g:ale_fix_on_save = 1                " run extension fixer on save only
 let g:ale_fixers = {
+      \ 'elixir': ['mix_format'],
       \ 'javascript': ['prettier'],
       \ 'javascriptreact': ['prettier'],
       \ 'typescript': ['prettier'],
