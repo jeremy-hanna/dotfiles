@@ -7,6 +7,7 @@ Plug 'majutsushi/tagbar'     " ctag navigation split
 Plug 'lvht/tagbar-markdown'  " tagbar markdown support
 Plug 'tpope/vim-surround'    " git wrapper gblame
 Plug 'kana/vim-textobj-user' " create custom vim text-objects
+Plug 'dense-analysis/ale'    " Asynchronous Lint Engine - runs prettier
 " --- Git and File utility ---
 " Plug '/usr/local/opt/fzf'  " import Homebrew fzf installation
 " Plug 'junegunn/fzf.vim'    " fzf function wrapper
@@ -21,7 +22,6 @@ Plug 'andyl/vim-textobj-elixir'  " make elixir blocks text-objects
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " GoLang editing improvments
 " --- React ---
 Plug 'maxmellon/vim-jsx-pretty' " syntax highlighting for jsx
-Plug 'prettier/vim-prettier', { 'do': 'npm install' } " auto formatting
 Plug 'rstacruz/vim-closer'  " close '({[' for writing ES6
 Plug 'alvan/vim-closetag'   " close React component and HTML tags
 " --- Misc Formatting ---
@@ -56,6 +56,19 @@ nmap <space> <leader>
 
 " nop the Ex mode cuz it is stupid and pointless
 nnoremap Q <nop>
+
+" ALE configuration
+let g:ale_lint_on_text_changed = 'never' " don't lint on a changed buffer
+let g:ale_lint_on_enter = 0              " don't lint on file open
+let g:ale_linters_explicit = 1           " only lint opt-in extensions
+let g:ale_fix_on_save = 1                " run extension fixer on save only
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'javascriptreact': ['prettier'],
+      \ 'typescript': ['prettier'],
+      \ 'typescriptreact': ['prettier'],
+      \ 'css': ['prettier'],
+      \}
 
 " load specific configurations based on filetype
 " - <r> running spec(s)
