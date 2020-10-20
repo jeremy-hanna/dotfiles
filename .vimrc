@@ -13,7 +13,6 @@ Plug 'kana/vim-textobj-user' " create custom vim text-objects
 Plug 'tpope/vim-fugitive'    " git wrapper gblame
 " --- Visuals and syntax ---
 Plug 'ntpeters/vim-better-whitespace'
-" Plug 'vim-airline/vim-airline'
 " --- Ruby ---
 " --- Elixir ---
 Plug 'elixir-editors/vim-elixir' " elixir syntax highlight
@@ -55,6 +54,9 @@ set colorcolumn=80
 " set vim leader to space
 nmap <space> <leader>
 
+" nop the Ex mode cuz it is stupid and pointless
+nnoremap Q <nop>
+
 " load specific configurations based on filetype
 " - <r> running spec(s)
 " - comment leader
@@ -66,6 +68,7 @@ if !exists("autocommands_loaded")
   au Filetype go               source ~/.vim/scripts/go.vim
   au FileType sh,python        let b:comment_leader = '# '
   au FileType javascript,javascriptreact source ~/.vim/scripts/js.vim
+  au FileType typescript,typescriptreact source ~/.vim/scripts/js.vim
   au FileType vim              let b:comment_leader = '" '
   au BufRead,BufNewFile *.tf*	 source ~/.vim/scripts/terraform.vim
   au BufNewFile,BufRead *.bib  set filetype=markdown " this sets syntax and ctag checking to markdown
@@ -83,6 +86,15 @@ nmap <leader>e :e <C-R>=expand("%:p:h") . "/"<CR>
 
 " insert a debugger breakpoint
 nnoremap <leader>o O<Esc>:s/^/\=b:debug_cmd/g<CR>
+
+" compiler and QuickFix window commands
+nnoremap ~ :make<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [q :cprevious<CR>
+nnoremap ]Q :clast<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]b :bnext<CR>
+nnoremap [b :bprevious<CR>
 
 " set vim-closetag variables
 let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascriptreact'

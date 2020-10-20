@@ -17,6 +17,8 @@ zplug load
 # alias tmux="TERM=screen-256color-bce tmux"
 
 alias ll="ls -Gal"
+alias vim="/usr/local/bin/vim"
+alias iex='ERL_AFLAGS="-kernel shell_history enabled" iex'
 
 # import .fzf key bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
