@@ -2,12 +2,14 @@
 call plug#begin('~/.vim/bundle')
 " --- Editing utility ---
 Plug 'godlygeek/tabular'     " align tables
-Plug 'reedes/vim-pencil'     " text wrapping navigation
-Plug 'majutsushi/tagbar'     " ctag navigation split
-Plug 'lvht/tagbar-markdown'  " tagbar markdown support
 Plug 'tpope/vim-surround'    " git wrapper gblame
 Plug 'kana/vim-textobj-user' " create custom vim text-objects
 Plug 'dense-analysis/ale'    " Asynchronous Lint Engine - runs prettier
+" --- Prose and markdown ---
+Plug 'reedes/vim-pencil'     " text wrapping navigation
+Plug 'majutsushi/tagbar'     " ctag navigation split
+Plug 'lvht/tagbar-markdown'  " tagbar markdown support
+Plug 'junegunn/goyo.vim'
 " --- Git and File utility ---
 " Plug '/usr/local/opt/fzf'  " import Homebrew fzf installation
 " Plug 'junegunn/fzf.vim'    " fzf function wrapper
@@ -45,6 +47,7 @@ set nu
 " highlight white line at 80 char
 highlight ColorColumn ctermbg=235
 set colorcolumn=80
+set nohlsearch
 
 " commandline completion
 " set wildmode=longest,list,full
@@ -101,12 +104,12 @@ nmap <leader>e :e <C-R>=expand("%:p:h") . "/"<CR>
 " insert a debugger breakpoint
 nnoremap <leader>o O<Esc>:s/^/\=b:debug_cmd/g<CR>
 
-" compiler and QuickFix window commands
+" compiler and location + quick fix window commands
 nnoremap ~ :make<CR>
-nnoremap ]q :cnext<CR>
-nnoremap [q :cprevious<CR>
-nnoremap ]Q :clast<CR>
-nnoremap [Q :cfirst<CR>
+nnoremap ]q :lnext<CR>
+nnoremap [q :lprevious<CR>
+nnoremap ]Q :cnext<CR>
+nnoremap [Q :clast<CR>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
 

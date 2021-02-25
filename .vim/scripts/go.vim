@@ -6,9 +6,12 @@
 " govet - compile bugs
 " godepth - depth complexity
 " staticcheck - simplification suggetsions
-"
-let g:go_alternate_mode = "vsplit"
+
+" vim-go config
 let g:go_def_mode = "guru"
+let g:go_code_completion_enabled = 0
+
+let g:go_alternate_mode = "vsplit" " TODO: set this to a hotkey
 
 " set comment_leader for golang comments
 let b:comment_leader = '// '
