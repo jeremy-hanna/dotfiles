@@ -1,0 +1,109 @@
+{
+  "print": {
+    "prefix": "p",
+    "body": "fmt.Printf(\"${1:%s}\\n\", ${2:var})",
+    "description": "Snippet for fmt.Printf()"
+  },
+  "method declaration": {
+    "prefix": "m",
+    "body": [
+      "func (${1:receiver}) ${2:methodName}(${3:args}) ${4:...} {",
+      "  $0",
+      "}"
+    ],
+    "description": "Snippet for method declaration"
+  },
+  "package main run": {
+    "prefix": "pmr",
+    "body": [
+      "package main",
+      "",
+      "import (",
+      "  \"fmt\"",
+      "  \"os\"",
+      ")",
+      "",
+      "func main() {",
+      "  if err := run(); err != nil {",
+      "    fmt.Fprintln(os.Stderr, err)",
+      "    os.Exit(1)",
+      "  }",
+      "}",
+      "",
+      "func run() error {",
+      "  ${1:return nil}",
+      "}"
+    ],
+    "description": "Snippet for new file pkg + main func + run func"
+  },
+  "test func": {
+    "prefix": "te",
+    "body": [
+      "func Test${1:functionName}(t *testing.T) {",
+      "  $0",
+      "}"
+    ],
+    "description": "Snippet for Test function"
+  },
+  "table driven test": {
+    "prefix": "td",
+    "body": [
+      "func Test${1:functionName}(t *testing.T) {",
+      "  testCases := []struct {",
+      "    desc  string",
+      "    $2",
+      "  }{",
+      "    {",
+      "      desc: \"$3\",",
+      "      $4",
+      "    },",
+      "  }",
+      "  for _, tC := range testCases {",
+      "    t.Run(tC.desc, func(t *testing.T) {",
+      "      $0",
+      "    })",
+      "  }",
+      "}"
+    ],
+    "description": "Snippet for table driven test"
+  },
+  "bench func": {
+    "prefix": "be",
+    "body": [
+      "func Benchmark${1:functionName}(t *testing.B) {",
+      "  $0",
+      "}"
+    ],
+    "description": "Snippet for Benchmark function"
+  },
+  "struct declaration": {
+    "prefix": "s",
+    "body": "type ${1:name} struct {$0}",
+    "description": "Snippet for a struct declaration"
+  },
+  "map declaration": {
+    "prefix": "map",
+    "body": "map[${1:type}]${2:type}",
+    "description": "Snippet for a map"
+  },
+  "return err": {
+    "prefix": "re",
+    "body": "return err",
+    "description": "Snippet for return err"
+  },
+  "return nil": {
+    "prefix": "rn",
+    "body": "return nil",
+    "description": "Snippet for return nil"
+  },
+  "return": {
+    "prefix": "r",
+    "body": "return $0",
+    "description": "Snippet for return"
+  },
+  "log variable content": {
+    "prefix": "lv",
+    "body": "log.Printf(\"${1:var}: %#+v\\\\n\", ${1:var})",
+    "description": "Snippet for log.Printf() with variable content"
+  }
+}

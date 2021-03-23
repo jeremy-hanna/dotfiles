@@ -10,6 +10,7 @@
 " vim-go config
 let g:go_def_mode = "guru"
 let g:go_code_completion_enabled = 0
+let g:go_template_autocreate = 0
 
 let g:go_alternate_mode = "vsplit" " TODO: set this to a hotkey
 

@@ -5,6 +5,7 @@ Plug 'godlygeek/tabular'     " align tables
 Plug 'tpope/vim-surround'    " git wrapper gblame
 Plug 'kana/vim-textobj-user' " create custom vim text-objects
 Plug 'dense-analysis/ale'    " Asynchronous Lint Engine - runs prettier
+Plug 'hrsh7th/vim-vsnip'     " vscode like snippets
 " --- Prose and markdown ---
 Plug 'reedes/vim-pencil'     " text wrapping navigation
 Plug 'majutsushi/tagbar'     " ctag navigation split
@@ -116,6 +117,16 @@ nnoremap [b :bprevious<CR>
 " set vim-closetag variables
 let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascriptreact'
 let g:closetag_emptyTags_caseSensitive = 1
+
+" snippets
+imap <expr> <C-j> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'
+smap <expr> <C-j> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'
+imap <expr> <C-l> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-l>'
+smap <expr> <C-l> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-l>'
+let g:vsnip_snippet_dir = expand('~/.vim/snippets')
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.javascriptreact = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['typescript']
 
 " leave insert mode quickly
 " https://stackoverflow.com/questions/13404602/how-to-prevent-esc-from-waiting-for-more-input-in-insert-mode/13485315#13485315
