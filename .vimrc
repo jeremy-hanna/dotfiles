@@ -18,6 +18,11 @@ Plug 'tpope/vim-fugitive'    " git wrapper gblame
 " --- Visuals and syntax ---
 Plug 'ntpeters/vim-better-whitespace'
 " --- Ruby ---
+" --- Scala ---
+if has('nvim')
+  Plug 'scalameta/nvim-metals'
+endif
+" --- Python ---
 " --- Elixir ---
 Plug 'elixir-editors/vim-elixir' " elixir syntax highlight
 Plug 'andyl/vim-textobj-elixir'  " make elixir blocks text-objects
@@ -29,6 +34,10 @@ Plug 'rstacruz/vim-closer'  " close '({[' for writing ES6
 Plug 'alvan/vim-closetag'   " close React component and HTML tags
 " --- Misc Formatting ---
 " Plug 'hashivim/vim-terraform'
+if has('nvim')
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+endif
 call plug#end()
 
 colorscheme apprentice
@@ -51,8 +60,8 @@ set colorcolumn=80
 set nohlsearch
 
 " commandline completion
-" set wildmode=longest,list,full
-" set wildmenu
+set wildmenu
+set wildmode=longest:full,full
 " wildignore=
 
 " set vim leader to space
@@ -81,8 +90,10 @@ let g:ale_fixers = {
 " - <v> open rel spec file
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
+  au Filetype lua              source ~/.vim/scripts/lua.vim
   au Filetype ruby             source ~/.vim/scripts/ruby.vim
   au Filetype elixir           source ~/.vim/scripts/elixir.vim
+  au Filetype scala,sbt        source ~/.vim/scripts/scala.vim
   au Filetype go               source ~/.vim/scripts/go.vim
   au FileType sh,python        let b:comment_leader = '# '
   au FileType javascript,javascriptreact source ~/.vim/scripts/js.vim
