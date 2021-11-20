@@ -17,8 +17,11 @@ zplug load
 # alias tmux="TERM=screen-256color-bce tmux"
 
 alias ll="ls -Gal"
-alias vim="/usr/local/bin/vim"
+alias vim="/usr/local/bin/nvim"
 alias iex='ERL_AFLAGS="-kernel shell_history enabled" iex'
+
+# don't kill session with C-d
+setopt ignoreeof
 
 # import .fzf key bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -26,6 +29,11 @@ alias iex='ERL_AFLAGS="-kernel shell_history enabled" iex'
 # Add $HOME/bin to path for custom bash scripts
 export PATH=$PATH:$HOME/bin
 # export PATH=$PATH:$HOME/Library/Python/3.7/bin
+
+# Add language servers to path
+export PATH=$PATH:$HOME/tools/lua-language-server/bin/macOS
+export PATH=$PATH:$HOME/.cargo/bin
+
 
 # Bind some convience keys for navigating shell commands
 bindkey "^b" backward-word # ctrl + b

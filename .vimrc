@@ -18,9 +18,10 @@ Plug 'tpope/vim-fugitive'    " git wrapper gblame
 " --- Visuals and syntax ---
 Plug 'ntpeters/vim-better-whitespace'
 " --- Ruby ---
-" --- Scala ---
+" --- Rust ---
 if has('nvim')
-  Plug 'scalameta/nvim-metals'
+  Plug 'simrat39/rust-tools.nvim'
+  Plug 'saecki/crates.nvim', { 'branch': 'main' }
 endif
 " --- Python ---
 " --- Elixir ---
@@ -37,6 +38,14 @@ Plug 'alvan/vim-closetag'   " close React component and HTML tags
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'kevinhwang91/nvim-bqf', { 'branch': 'main' }
+  Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+endif
+" --- Scala ---
+if has('nvim')
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'scalameta/nvim-metals', { 'branch': 'main' }
 endif
 call plug#end()
 
@@ -88,12 +97,12 @@ let g:ale_fixers = {
 " - <r> running spec(s)
 " - comment leader
 " - <v> open rel spec file
+au BufRead,BufNewFile *.sbt,*.sc set filetype=scala
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
-  au Filetype lua              source ~/.vim/scripts/lua.vim
   au Filetype ruby             source ~/.vim/scripts/ruby.vim
   au Filetype elixir           source ~/.vim/scripts/elixir.vim
-  au Filetype scala,sbt        source ~/.vim/scripts/scala.vim
+  " au Filetype scala,sbt        source ~/.vim/scripts/scala.vim
   au Filetype go               source ~/.vim/scripts/go.vim
   au FileType sh,python        let b:comment_leader = '# '
   au FileType javascript,javascriptreact source ~/.vim/scripts/js.vim
@@ -121,7 +130,8 @@ nnoremap ~ :make<CR>
 nnoremap ]q :lnext<CR>
 nnoremap [q :lprevious<CR>
 nnoremap ]Q :cnext<CR>
-nnoremap [Q :clast<CR>
+nnoremap [Q :cprev<CR>
+nnoremap <leader>cc :cclose<CR>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
 
