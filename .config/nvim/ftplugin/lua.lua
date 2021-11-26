@@ -27,6 +27,9 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
+require "lsp_signature".setup({
+  bind = true,
+})
 
 
 -- Give the test runner a keymap

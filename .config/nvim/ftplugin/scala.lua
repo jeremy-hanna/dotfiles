@@ -1,7 +1,7 @@
 ----------------------------------
 -- LSP Setup ---------------------
 ----------------------------------
-local metals_config = require("metals").bare_config
+local metals_config = require("metals").bare_config()
 metals_config.root_patterns = { "build.sbt" }
 
 metals_config.settings = {
@@ -26,10 +26,7 @@ end
 
 -- Start the LSP server
 require("metals").initialize_or_attach(metals_config)
-require("lspsaga").init_lsp_saga({
-  server_filetype_map = { metals = { "sbt", "scala" } },
-  code_action_prompt = { virtual_text = false },
-})
+require("lsp_signature").setup()
 
 ----------------------------------
 -- Metals bindings ---------------
