@@ -10,6 +10,16 @@ zplug check --verbose || zplug install
 
 zplug load
 
+autoload -Uz compinit && compinit
+
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+export SAVEHIST=1000000000
+export HISTFILE=~/.zsh_history
+setopt HIST_FIND_NO_DUPS
+setopt share_history
+setopt inc_append_history
+
 # homebrew : brew installed python
 # export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 
@@ -33,6 +43,7 @@ export PATH=$PATH:$HOME/bin
 # Add language servers to path
 export PATH=$PATH:$HOME/tools/lua-language-server/bin/macOS
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$GOPATH/bin
 
 
 # Bind some convience keys for navigating shell commands

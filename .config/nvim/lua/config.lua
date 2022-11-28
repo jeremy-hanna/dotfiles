@@ -1,5 +1,23 @@
 local Plug = vim.fn['plug#']
 
+local set = vim.opt
+local cmd = vim.cmd
+local g = vim.g
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+g.mapleader = " "
+
+-- colorschemes
+cmd [[colorscheme seoul256]]
+--set.termguicolors = true
+--cmd [[colorscheme allomancer]]
+
 vim.call('plug#begin', '~/.vim/bundle')
 -- --- Editing utility ---
 Plug('godlygeek/tabular')     -- align tables
@@ -23,6 +41,7 @@ Plug('ntpeters/vim-better-whitespace')
 Plug('simrat39/rust-tools.nvim')
 Plug('saecki/crates.nvim', { branch = 'main' })
 -- --- Python ---
+Plug('numirias/semshi', { ['do'] = ':UpdateRemotePlugins' })
 -- --- Elixir ---
 Plug('elixir-editors/vim-elixir') -- elixir syntax highlight
 Plug('andyl/vim-textobj-elixir')  -- make elixir blocks text-objects
@@ -45,27 +64,13 @@ Plug('nvim-lua/plenary.nvim')
 Plug('scalameta/nvim-metals', { branch = 'main' })
 vim.call('plug#end')
 
-local set = vim.opt
-local cmd = vim.cmd
-local g = vim.g
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
-g.mapleader = " "
-
 ----------------------------------
 -- Vim settings  ------------------
 ----------------------------------
-cmd [[colorscheme apprentice]]
 set.relativenumber = true
 set.number = true
 
-cmd [[highlight ColorColumn ctermbg=235]]
+cmd [[highlight ColorColumn ctermbg=237]]
 set.colorcolumn = '80'
 set.hlsearch = false
 

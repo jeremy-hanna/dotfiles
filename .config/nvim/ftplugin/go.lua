@@ -20,6 +20,6 @@ vim.b.comment_leader = '// '
 
 -- execute tests on current directory package,
 -- ./ (dir) % (current filepath) p (path) . (reduce to relative) h (directory)
-vim.api.nvim_set_keymap("n", "<leader>r", [[:!time go test -v ./%:p:.:h<CR>]])
+vim.api.nvim_set_keymap("n", "<leader>r", [[:!time go test -v ./%:p:.:h<CR>]], {})
 -- autocmd BufWritePre *.go GoFmt " run vim-go GoFmt on save
 
