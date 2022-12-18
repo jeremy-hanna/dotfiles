@@ -33,4 +33,4 @@ require "lsp_signature".setup({
 
 
 -- Give the test runner a keymap
-vim.api.nvim_buf_set_keymap('0', 'n', '<leader>r', ':!time busted %<CR>', { silent = true })
+-- vim.api.nvim_buf_set_keymap('0', 'n', '<leader>r', ':!time busted %<CR>', { silent = true })
